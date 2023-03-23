@@ -1,0 +1,23 @@
+<?php
+if(isset($_POST['download'])) {
+  // Get remote file URL from input field
+  $remote_file_url = $_POST['remote_file_url'];
+
+  // Define local file path and name
+  $local_file_path = '/path/to/local/file/name.extension';
+
+  // Download remote file and save it locally using copy() function
+  if(copy($remote_file_url, $local_file_path)) {
+    echo 'File downloaded successfully!';
+  } else {
+    echo 'Error downloading file.';
+  }
+}
+?>
+
+<!-- HTML form with input field for remote file URL -->
+<form method="post" action="">
+  <label for="remote_file_url">Remote file URL:</label>
+  <input type="text" name="remote_file_url" id="remote_file_url">
+  <input type="submit" name="download" value="Download">
+</form>
